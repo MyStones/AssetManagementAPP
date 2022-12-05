@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebAsset.Models.Asset>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<head>
+    @Styles.Render("~/css/Index.css")
+</head>
+
+<body>
+    <marquee direction="left" style="color:#ffffff; font-size: 30px;">Asset Management Application</marquee>
+    <div class="hero2">
+        <!--This feels like the wrong solution here :/ -->
+        <fieldset class="hero2-text">
+            <legend class="border-text">&nbsp; be impressed</legend>
+            <h1>Asset Ninja</h1>
+            <p>Now you can manage the organization assets easily and efficiently!!</p>
+            @*<a href="#scroll2"><button>click me</button></a>*@
+            <a href="@Url.Action("GetAsset", "Asset")" class="View"><button>View Asset</button></a>
+            <a href="@Url.Action("AddAsset", "Asset")" class="View"><button>Add Asset</button></a><br /><br />
+            <a href="@Url.Action("EditAssets", "Asset")" class="View"><button>Edit Asset</button></a>
+            <a href="@Url.Action("DeleteAssets", "Asset")" class="View"><button>Delete Asset</button></a><br /><br />
+        </fieldset>
+    </div>
+
+
+</body>
+
+
+@section scripts
+{
+    <script>
+        $(function () {
+            var successMessage = '@TempData["SuccessMessage"]'
+            if (successMessage != '')
+                alertify
+                    .alert('Asset Ninja',successMessage, function () {
+
+                    });
+            });
+
+    </script>
+}
+
+
+
+
+
+
+
+
+

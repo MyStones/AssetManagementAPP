@@ -1,0 +1,56 @@
+﻿@model IEnumerable<WebAsset.Models.Asset>
+
+@{
+    ViewBag.Title = "EditAssets";
+}
+
+<head>
+    @Styles.Render("~/css/EditAssets.css")
+    <div>
+
+        <p class="mintitle">Edit Asset</p>
+    </div>
+
+</head>
+
+<body>
+    @using (Html.BeginForm("EditAssets", "Asset", FormMethod.Get))
+    {
+        <div class="col-sm-9 col-xs-12 text-right">
+            <div class="btn_group">
+                <button class="btn btn-default btn-lg" title="SortByAssetName"style="color:aliceblue;font-weight:600">
+                    @Html.ActionLink("Asset Name", "EditAssets", new { SortOrder = ViewBag.AssetName })
+                </button>
+                <button class="btn btn-default btn-lg" title="SortByAssetSku"style="color:aliceblue;font-weight:600">
+                    @Html.ActionLink("Asset SKU", "EditAssets", new { SortOrder = ViewBag.AssetSku })
+                </button>
+                <button class="btn btn-default btn-lg" title="Menu"style="color:aliceblue;font-weight:600">
+                    @Html.ActionLink("Home", "Index")
+                </button>
+            </div>
+        </div>
+
+    }
+    @foreach (var item in Model)
+    {
+        <div class="cards">
+            <div class="card card-1">
+                <th class="card__title">SKU: @Html.DisplayFor(modelItem => item.AssetSku)</th><br />
+                <th class="card__title">Asset Name: @Html.DisplayFor(modelItem => item.AssetName)</th><br />
+                <th class="card__title">Asset Type: @Html.DisplayFor(modelItem => item.AssetType)</th><br />
+                                                                                                     
+                <div class="btn_group">
+                    <button class="btn btn-default"><a href="@Url.Action("EditAsset", "Asset", new { id = item.AssetId })">Edit</a></button>
+                    @*<button class="btn btn-default"><a href="@Url.Action("GetAssetList", "Asset")"><i class="fa-sharp fa-solid fa-eye"></i></a></button>*@
+                </div>
+            </div>
+        </div>
+
+    }
+
+
+
+</body>
+
+
+

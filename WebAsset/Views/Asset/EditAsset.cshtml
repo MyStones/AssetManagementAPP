@@ -1,0 +1,152 @@
+﻿@model WebAsset.Models.Asset
+
+@{
+    ViewBag.Title = "EditAsset";
+}
+
+<head>
+    <h2 class="mintitle">Edit Asset</h2>
+    @Styles.Render("~/css/EditAsset.css")
+</head>
+
+<body style=" background-color: linear-gradient(to right bottom,rgba(41,128,185, 0.7), rgba(44,62,80,0.3));">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+    <form>
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+        <main>
+            <section class="glass">
+                <div class="dashboard">
+                    <div class="links">
+                        <div class="link">
+                            <h3>Asset Name</h3>
+
+                        </div>
+                        <div class="link">
+                            <h3>Asset Type</h3>
+
+                        </div>
+                        <div class="link">
+                            <h3>Asset Sku</h3>
+
+                        </div>
+                        <div class="link">
+                            <h3>Price</h3>
+                        </div>
+
+                        <div class="link">
+                            <h3>Count Asset</h3>
+                        </div>
+                        <div class="link">
+                            <h3>Description</h3>
+                        </div>
+
+                        <div class="link">
+                            <h3>Vendor</h3>
+                        </div>
+                        @*<div class="link">
+                            <h3>Created On</h3>
+                        </div>*@
+
+                    </div>
+
+                </div>
+                <div class="dashboard1">
+                    <div class="link">
+                        <h2 class="input">
+                            @Html.EditorFor(model => model.AssetName, new { htmlAttributes = new { @class = "form-control" } })
+                        </h2>
+                        <span style="font-family:'Times New Roman';font-size:small;color:brown;"> @Html.ValidationMessageFor(model => model.AssetName, "", new { @class = "validation_error" })</span>
+
+                    </div>
+                    <div class="link">
+                        <h2 class="input">
+                            @*@Html.EditorFor(model => model.AssetType, new { htmlAttributes = new { @class = "form-control" } })@*@
+                            @Html.DropDownList("AssetType", new List<SelectListItem>
+                       {
+                           new SelectListItem{Text="Electronics"},
+                            new SelectListItem{Text="Software"},
+                             new SelectListItem{Text="Machinary"},
+                              new SelectListItem{Text="IT Asset"},
+                               new SelectListItem{Text="Security"},
+                                new SelectListItem{Text="Furnitures"},
+                       new SelectListItem{Text="Others"}}, "Select Asset Type", htmlAttributes: new { @class = "btn btn-default" }
+)
+                        </h2>
+                        <p style="font-family: 'Times New Roman'; font-size: small;"> @Html.ValidationMessageFor(model => model.AssetType, "", new { @class = "text-danger" })</p>
+
+                    </div>
+                    <div class="link">
+                        <h2 class="input">
+                            @Html.EditorFor(model => model.AssetSku, new { htmlAttributes = new { @class = "form-control" } })
+                        </h2>
+                        <p style="font-family: 'Times New Roman'; font-size: small;"> @Html.ValidationMessageFor(model => model.AssetSku, "", new { @class = "text-danger" })</p>
+
+                    </div>
+                    <div class="link">
+                        <h2 class="input">
+                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                        </h2>
+                        <p style="font-family: 'Times New Roman'; font-size: small;">  @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })</p>
+
+                    </div>
+                    <div class="link">
+                        <h2 class="input">
+                            @Html.EditorFor(model => model.CountAsset, new { htmlAttributes = new { @class = "form-control" } })
+                        </h2>
+                        <p style="font-family: 'Times New Roman'; font-size: small;"> @Html.ValidationMessageFor(model => model.CountAsset, "", new { @class = "text-danger" })</p>
+
+                    </div>
+                    <div class="link">
+                        <h2 class="input" style="color:black;font-family:Georgia, 'Times New Roman', Times, serif;font-size:medium">
+                            @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        </h2>
+                        <p style="font-family: 'Times New Roman'; font-size: small;"> @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })</p>
+                    </div>
+                    <div class="link">
+                        <h2 class="input">
+                            @Html.EditorFor(model => model.Vendor, new { htmlAttributes = new { @class = "form-control" } })
+                        </h2>
+                        <p style="font-family: 'Times New Roman'; font-size: small;"> @Html.ValidationMessageFor(model => model.Vendor, "", new { @class = "text-danger" })</p>
+
+                    </div>
+                    @*<div class="link">
+                        <h2 class="input">
+                            @Html.EditorFor(model => model.CreatedOn, new { htmlAttributes = new { @class = "form-control" } })
+                        </h2>
+                        <p style="font-family: 'Times New Roman'; font-size: small;"> @Html.ValidationMessageFor(model => model.CreatedOn, "", new { @class = "text-danger" })</p>
+                    </div>*@
+
+                </div>
+
+
+
+                @*<p class="btn-group"> <input type="submit" value="Save" class="View" />
+                    <button><input type="submit" value="Save" class="View" /></button>
+                </p>*@
+
+            </section>
+        </main>
+
+        <div class="btn_group">
+           
+            @*@<button class="btn btn-default" title="Menu">@Html.ActionLink("Home", "Index")</button>@
+            @<button class="btn btn-default"><a href="@Url.Action("Index", "Asset")"><i class="fa-sharp fa-solid fa-eye"></i></a></button>@*@
+            <button class="btn btn-default" title="Save">Save</button>
+
+        </div>
+    </form>
+    }
+</body>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

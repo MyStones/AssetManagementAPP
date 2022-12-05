@@ -1,0 +1,105 @@
+﻿@model WebAsset.Models.Asset
+
+@{
+    ViewBag.Title = "DeleteAsset";
+}
+
+<head>
+    <h2 class="mintitle">Delete Asset</h2>
+    @Styles.Render("~/css/DeleteAsset.css")
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+        <section class="glass">
+            <div class="dashboards">
+
+
+                <form>
+                    <div class="link">
+                        <p>  Asset ID: </p>
+                        <h2 class="input">
+                            @Html.DisplayFor(model => model.AssetId)
+                        </h2>
+                    </div>
+
+                    <div class="link">
+                        <p>  Asset Name: </p>
+                        <h2 class="input">
+                            @Html.DisplayFor(model => model.AssetName)
+                        </h2>
+                    </div>
+
+                    <div class="link">
+                        <p>  Asset Type: </p>
+                        <h2 class="input">
+                            @Html.DisplayFor(model => model.AssetType)
+                        </h2>
+                    </div>
+
+                    <div class="link">
+                        <p>  Asset SKU: </p>
+                        <h2 class="input">
+                            @Html.DisplayFor(model => model.AssetSku)
+                        </h2>
+                    </div>
+
+                    <div class="link">
+                        <p> Price: </p>
+                        <h2 class="input">
+                            @Html.DisplayFor(model => model.Price)
+                        </h2>
+                    </div>
+
+                    <div class="link">
+                        <p>  Count Asset: </p>
+                        <h2 class="input">
+                            @Html.DisplayFor(model => model.CountAsset)
+                        </h2>
+                    </div>
+
+                    <div class="link">
+                        <p>  Description: </p>
+                        <h2 class="input">
+                            @Html.DisplayFor(model => model.Description)
+                        </h2>
+                    </div>
+
+                    <div class="link">
+                        <p>  Vendor: </p>
+                        <h2 class="input">
+                            @Html.DisplayFor(model => model.Vendor)
+                        </h2>
+                    </div>
+
+                    @*<div class="link">
+                        <p>  Created On: </p>
+                        <h2 class="input">
+                            @Html.DisplayFor(model => model.CreatedOn)
+                        </h2>
+                    </div>*@
+
+
+
+
+                </form>
+            </div>
+        </section>
+    }
+    </body>
+
+
+                     @using (Html.BeginForm())
+                     {
+                       @Html.AntiForgeryToken()
+
+                       <div class="btn_group">
+                       <input type="submit" value="Delete" class="btn btn-default" /> 
+                       @*@Html.ActionLink("Back to List", "Index")*@
+                       </div>
+                                                }
+                    </div>

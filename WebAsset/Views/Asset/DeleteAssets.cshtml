@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WebAsset.Models.Asset>
+
+@{
+    ViewBag.Title = "DeleteAssets";
+}
+
+<head>
+    @Styles.Render("~/css/DeleteAssets.css")
+    <div>
+
+        <p class="mintitle">Delete Asset</p>
+    </div>
+
+
+</head>
+
+<body>
+
+    @foreach (var item in Model)
+    {
+        <div class="cards">
+            <div class="card card-1">
+                <th class="card__title">SKU: @Html.DisplayFor(modelItem => item.AssetSku)</th><br />
+                <th class="card__title">Asset Name: @Html.DisplayFor(modelItem => item.AssetName)</th><br />
+                <th class="card__title">Asset Type: @Html.DisplayFor(modelItem => item.AssetType)</th><br />
+                <th class="card__title">Price:  @Html.DisplayFor(modelItem => item.Price)</th><br />
+                <th class="card__title">Count: @Html.DisplayFor(modelItem => item.CountAsset)</th><br />
+                <th class="card__title">Description:  @Html.DisplayFor(modelItem => item.Description)</th><br />
+                <th class="card__title">Vendor:  @Html.DisplayFor(modelItem => item.Vendor)</th><br />
+                @*<th class="card__title">Created On:  @Html.DisplayFor(modelItem => item.CreatedOn)</th><br />*@
+
+                <div class="btn_group">
+                    <button class="btn btn-default"><a href="@Url.Action("DeleteAsset", "Asset", new { id = item.AssetId })">@*<i class="fa-solid fa-trash"></i>*@Delete</a></button>
+                    @*<button class="btn btn-default"><a href="@Url.Action("Index", "Asset")"><i class="fa-sharp fa-solid fa-eye"></i></a></button>*@
+                </div>
+
+            </div>
+
+        </div>
+
+    }
+
+
+
+</body>

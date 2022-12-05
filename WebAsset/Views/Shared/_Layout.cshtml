@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .navbar-brand {
+            font-weight: 1000;
+           
+            
+        }
+    </style>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @*Font-Awesome Link*@
+    <script src="https://kit.fontawesome.com/eacbc103c6.js" crossorigin="anonymous"></script>
+    @*Alertify References*@
+    <link href="~/Content/alertifyjs/alertify.min.css" rel="stylesheet" />
+
+    <link href="~/Content/alertifyjs/themes/default.min.css" rel="stylesheet" />
+   
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#2c88c7">
+        <div class="container">
+            <div class="navbar-header">
+
+                @Html.ActionLink("Asset Ninja", "Index", "Asset", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("View", "GetAsset", "Asset", new { area = "" }, new { @class = "navbar-brand" })</li>
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+
+    </div>
+    <script src="~/Scripts/alertify.min.js"></script>
+    @*<script src="~/Scripts/alertify.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>*@
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+
+
+
+
+
+
+</body>
+</html>
